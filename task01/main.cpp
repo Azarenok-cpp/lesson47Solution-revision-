@@ -1,41 +1,21 @@
 #include "logic.h"
-#define SIZE 15
-int find_max_index(int* array, int size) {
-	int max = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (*(array + i) > * (array + max)) {
-			max = i;
-		}
-	}
-	return max;
-}
+#include "util.h"
 
-int find_min_index(int* array, int size) {
-	int min = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (*(array + i) > * (array + min)) {
-			min = i;
-		}
-	}
-	return min;
-}
+#define SIZE 10
+
+
+
 int main() {
-	int* array = new int[SIZE];
+	srand(time(0));
 
-	int from_index = find_min_index(array, SIZE);
-	int to_index = find_min_index(array, SIZE);
+	int* array = new int[] { -1, 2, -3, 4, -5, 6, -7, 8, -9, 10};
+	//{7,5,1};
 
-	if (from_index > to_index) {
-		swap(from_index, to_index);
+	for (int i = 0; i < SIZE; i++) {
+		cout << *(array + i) << " ";
 	}
-	int sum = 0;
-	for (int i = from_index; i < to_index; i++)
-	{
-		sum += *(array + i);
-	}
-
+	
+	cout << "\n\n" << sum_elems_between_max_and_min(array, SIZE);
 	delete[] array;
 	return 0;
 }
